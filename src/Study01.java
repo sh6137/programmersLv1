@@ -149,7 +149,7 @@ public class Study01 {
     public long 콜라츠_추측(long num) {
         long answer = 0;
         while (true) {
-            if (answer >500) {
+            if (answer > 500) {
                 answer = -1;
                 break;
             }
@@ -170,12 +170,40 @@ public class Study01 {
         String answer = "";
         for (int i = 0; i < seoul.length; i++) {
             if (seoul[i].equals("Kim")) {
-                answer = "김서방은 "+ i +"에 있다";
+                answer = "김서방은 " + i + "에 있다";
                 break;
             }
         }
-
         return answer;
+    }
+
+    public int[] 나누어_떨어지는_숫자_배열(int[] arr, int divisor) {
+        int[] answer = {};
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % divisor == 0) {
+                arrayList.add(arr[i]);
+            }
+        }
+        if (arrayList.size() == 0) {
+            answer = new int[1];
+            answer[0] = -1;
+        } else {
+            answer = arrayList.stream().sorted().mapToInt(f -> f).toArray();
+        }
+        return answer;
+    }
+
+
+    public String 핸드폰_번호_가리기(String phone_number) {
+        String answer = "";
+        phone_number.substring(phone_number.length() - 4, phone_number.length());
+        for (int i = 0; i < phone_number.length(); i++) {
+            if (i < phone_number.length() - 4) {
+                phone_number = phone_number.replace(phone_number.charAt(i), '*');
+            }
+        }
+        return phone_number;
     }
 
     public static void main(String[] args) {
