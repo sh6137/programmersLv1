@@ -197,13 +197,14 @@ public class Study01 {
 
     public String 핸드폰_번호_가리기(String phone_number) {
         String answer = "";
-        phone_number.substring(phone_number.length() - 4, phone_number.length());
-        for (int i = 0; i < phone_number.length(); i++) {
-            if (i < phone_number.length() - 4) {
-                phone_number = phone_number.replace(phone_number.charAt(i), '*');
-            }
+        String[] str = phone_number.split("");
+        for (int i = 0; i < str.length - 4; i++) {
+            str[i] = "*";
         }
-        return phone_number;
+        for (int i = 0; i < str.length ; i++) {
+            answer += str[i];
+        }
+        return String.valueOf(str.toString());
     }
 
     public static void main(String[] args) {
