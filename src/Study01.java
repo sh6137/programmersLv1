@@ -122,7 +122,7 @@ public class Study01 {
         return answer;
     }
 
-    public boolean solution(int x) {
+    public boolean 하샤드_수(int x) {
         boolean answer = true;
         String[] str = String.valueOf(x).split("");
         int a = Arrays.stream(str).mapToInt(f -> Integer.valueOf(f)).sum();
@@ -131,7 +131,18 @@ public class Study01 {
         }else{
             answer = false;
         }
+        return answer;
+    }
 
+    public long 두_정수_사이의_합(int a, int b) {
+        long answer = 0;
+        int[] array = new int[2];
+        array[0] = a;
+        array[1] = b;
+        Arrays.sort(array);
+        for (int i = array[0]; i <= array[1]; i++) {
+            answer += i;
+        }
         return answer;
     }
 
