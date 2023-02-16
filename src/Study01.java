@@ -128,7 +128,7 @@ public class Study01 {
         int a = Arrays.stream(str).mapToInt(f -> Integer.valueOf(f)).sum();
         if (x % a == 0) {
             answer = true;
-        }else{
+        } else {
             answer = false;
         }
         return answer;
@@ -143,6 +143,38 @@ public class Study01 {
         for (int i = array[0]; i <= array[1]; i++) {
             answer += i;
         }
+        return answer;
+    }
+
+    public long 콜라츠_추측(long num) {
+        long answer = 0;
+        while (true) {
+            if (answer >500) {
+                answer = -1;
+                break;
+            }
+            if (num == 1) {
+                break;
+            } else if (num % 2 == 0) {
+                num = num / 2;
+                answer++;
+            } else if (num % 2 != 0) {
+                num = (num * 3) + 1;
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    public String 서울에서_김서방_찾기(String[] seoul) {
+        String answer = "";
+        for (int i = 0; i < seoul.length; i++) {
+            if (seoul[i].equals("Kim")) {
+                answer = "김서방은 "+ i +"에 있다";
+                break;
+            }
+        }
+
         return answer;
     }
 
