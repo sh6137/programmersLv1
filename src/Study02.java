@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class Study02 {
     public int[] 제일_작은_수_제거하기(int[] arr) {
@@ -75,6 +74,33 @@ public class Study02 {
         for (int i = 0; i < a.length; i++) {
             answer += a[i]*b[i];
         }
+        return answer;
+    }
+
+    public String 문자열_내림차순으로_배치하기(String s) {
+        String answer = "";
+        String[] chars = s.split("");
+        Arrays.sort(chars, Collections.reverseOrder());
+        for (int i = 0; i < chars.length; i++) {
+            answer += chars[i];
+        }
+        return answer;
+    }
+
+    public int 약수의_개수와_덧셈(int left, int right) {
+        int answer = 0;
+
+        for(int i = left; i <= right; i++) {
+            int cnt = 0;
+
+            for(int j = 1; j <= i; j++) {
+                if(i % j == 0) cnt++;
+            }
+
+            if(cnt % 2 == 0) answer += i;
+            else answer -= i;
+        }
+
         return answer;
     }
 
