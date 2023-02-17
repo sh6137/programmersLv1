@@ -70,6 +70,14 @@ public class Study02 {
         return answer;
     }
 
+    public int 내적(int[] a, int[] b) {
+        int answer = 0;
+        for (int i = 0; i < a.length; i++) {
+            answer += a[i]*b[i];
+        }
+        return answer;
+    }
+
     public static void main(String[] args) {
         없는_숫자_더하기(new int[]{1,2,3,4,6,7,8,0});
     }
