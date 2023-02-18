@@ -42,6 +42,16 @@ public class Study03 {
         return answer;
     }
 
+    public void 직사각형_별찍기(int a, int b) {
+        String star = "*";
+        for (int i = 0; i < b; i++) {
+            for (int j = 0; j < a; j++) {
+                System.out.print(star);
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         부족한_금액_계산하기(3, 20, 4);
     }
