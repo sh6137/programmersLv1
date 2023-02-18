@@ -52,6 +52,29 @@ public class Study03 {
         }
     }
 
+    //최소공배수 = 최대공약수 * (수 1 / 최대공약수) * (수 2/ 최대공약수)
+    public int[] 최대공약수와_최소공배수(int n, int m) {
+        int[] answer = new int[2];
+        int a = 0;
+        if (n > m) {
+            a = eucd(n, m);
+        } else {
+            a = eucd(m, n);
+        }
+        answer[0] = a;
+        answer[1] = a * (n / a) * (m / a);
+        return answer;
+    }
+
+    public int eucd(int big, int small) {
+        int result = big % small;
+        if (result == 0) {
+            return small;
+        } else {
+            return eucd(small, result);
+        }
+    }
+
     public static void main(String[] args) {
         부족한_금액_계산하기(3, 20, 4);
     }
