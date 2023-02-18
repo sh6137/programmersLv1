@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
+import java.util.stream.IntStream;
 
 public class Study03 {
     public boolean 문자열_다루기_기본(String s) {
@@ -106,6 +107,23 @@ public class Study03 {
             integerStack.push(arr[i]);
         }
         answer = integerStack.stream().mapToInt(f -> f).toArray();
+        return answer;
+    }
+
+    public int 삼진법_뒤집기(int n) {
+        int answer = 0;
+        String[] a = Integer.toString(n, 3).split("");
+        String[] b = new String[a.length];
+        String c = "";
+        for (int i = a.length-1; i >= 0; i--) {
+            b[i] = a[a.length-1-i];
+        }
+        for (int i = 0; i < b.length; i++) {
+            c += b[i];
+        }
+//        StringBuilder reverse()
+//        String d = new StringBuilder(Integer.toString(n,3)).reverse().toString();
+        answer = Integer.parseInt(c,3);
         return answer;
     }
 
