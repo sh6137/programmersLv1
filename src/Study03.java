@@ -1,8 +1,5 @@
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Stack;
-import java.util.stream.IntStream;
 
 public class Study03 {
     public boolean 문자열_다루기_기본(String s) {
@@ -127,7 +124,37 @@ public class Study03 {
         return answer;
     }
 
+    public static String 이상한_문자_만들기(String s) {
+        String answer = "";
+        String[] str = s.split(" ",-1);
+        ArrayList<String>[] arrayLists = new ArrayList[str.length];
+        ArrayList<String> answerArrayList = new ArrayList<>();
+        for (int i = 0; i < str.length; i++) {
+            arrayLists[i] = new ArrayList<>();
+            String[] c = str[i].split("");
+            String result = "";
+            for (int j = 0; j < c.length; j++) {
+                if (j % 2 == 0) {
+                    c[j] = c[j].toUpperCase();
+                }else{
+                    c[j] = c[j].toLowerCase();
+                }
+            }
+            for (int k = 0; k < c.length; k++) {
+                result += c[k];
+            }
+            arrayLists[i].add(result);
+        }
+
+        for (int i = 0; i < arrayLists.length; i++) {
+           answerArrayList.add(arrayLists[i].get(0));
+        }
+
+        answer = String.join(" ", answerArrayList);
+        return answer;
+    }
+
     public static void main(String[] args) {
-        부족한_금액_계산하기(3, 20, 4);
+        이상한_문자_만들기("try hello world");
     }
 }
