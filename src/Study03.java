@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Stack;
+import java.util.*;
 
 public class Study03 {
     public boolean 문자열_다루기_기본(String s) {
@@ -182,7 +180,27 @@ public class Study03 {
         return answer;
     }
 
+    //todo : 복습
+    public static int 최소직사각형(int[][] sizes) {
+        int answer = 0;
+        int cardMax = 0;
+        int cardMin = 0;
+        for (int i = 0; i < sizes.length; i++) {
+            int max = Math.max(sizes[i][0], sizes[i][1]);
+            int min = Math.min(sizes[i][0], sizes[i][1]);
+
+            if (max > cardMax) {
+                cardMax = max;
+            }
+            if (min > cardMin){
+                cardMin = min;
+            }
+        }
+        answer = cardMin * cardMax;
+        return answer;
+    }
+
     public static void main(String[] args) {
-        예산(new int[]{2, 2, 3, 3}, 10);
+        최소직사각형(new int[][]{{10, 7}, {12, 3}, {8, 15}, {14, 7}, {5, 15}});
     }
 }
