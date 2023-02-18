@@ -105,7 +105,7 @@ public class Study03 {
             }
             integerStack.push(arr[i]);
         }
-        answer = integerStack.stream().mapToInt(f->f).toArray();
+        answer = integerStack.stream().mapToInt(f -> f).toArray();
         return answer;
     }
 
