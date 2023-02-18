@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Stack;
+
 public class Study03 {
     public boolean 문자열_다루기_기본(String s) {
         boolean answer = true;
@@ -73,6 +78,35 @@ public class Study03 {
         } else {
             return eucd(small, result);
         }
+    }
+
+    public int[] 같은_숫자는_싫어(int[] arr) {
+        int[] answer = {};
+        int a = arr[0];
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(a);
+        for (int i = 1; i < arr.length; i++) {
+            if (a != arr[i]) {
+                a = arr[i];
+                arrayList.add(a);
+            }
+        }
+        answer = arrayList.stream().mapToInt(f -> f).toArray();
+        return answer;
+    }
+
+    public int[] 같은_숫자는_싫어2(int[] arr) {
+        int[] answer = {};
+        Stack<Integer> integerStack = new Stack<>();
+        integerStack.push(arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            if (integerStack.peek() == arr[i]) {
+                integerStack.pop();
+            }
+            integerStack.push(arr[i]);
+        }
+        answer = integerStack.stream().mapToInt(f->f).toArray();
+        return answer;
     }
 
     public static void main(String[] args) {
