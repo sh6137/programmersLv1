@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Stack;
 
 public class Study03 {
@@ -112,21 +113,21 @@ public class Study03 {
         String[] a = Integer.toString(n, 3).split("");
         String[] b = new String[a.length];
         String c = "";
-        for (int i = a.length-1; i >= 0; i--) {
-            b[i] = a[a.length-1-i];
+        for (int i = a.length - 1; i >= 0; i--) {
+            b[i] = a[a.length - 1 - i];
         }
         for (int i = 0; i < b.length; i++) {
             c += b[i];
         }
 //        StringBuilder reverse()
 //        String d = new StringBuilder(Integer.toString(n,3)).reverse().toString();
-        answer = Integer.parseInt(c,3);
+        answer = Integer.parseInt(c, 3);
         return answer;
     }
 
     public static String 이상한_문자_만들기(String s) {
         String answer = "";
-        String[] str = s.split(" ",-1);
+        String[] str = s.split(" ", -1);
         ArrayList<String>[] arrayLists = new ArrayList[str.length];
         ArrayList<String> answerArrayList = new ArrayList<>();
         for (int i = 0; i < str.length; i++) {
@@ -136,7 +137,7 @@ public class Study03 {
             for (int j = 0; j < c.length; j++) {
                 if (j % 2 == 0) {
                     c[j] = c[j].toUpperCase();
-                }else{
+                } else {
                     c[j] = c[j].toLowerCase();
                 }
             }
@@ -147,14 +148,27 @@ public class Study03 {
         }
 
         for (int i = 0; i < arrayLists.length; i++) {
-           answerArrayList.add(arrayLists[i].get(0));
+            answerArrayList.add(arrayLists[i].get(0));
         }
 
         answer = String.join(" ", answerArrayList);
         return answer;
     }
 
+    public static int 예산(int[] d, int budget) {
+        int answer = 0;
+        Arrays.sort(d);
+        for (int i = 0; i < d.length; i++) {
+            budget = budget - d[i];
+            if (budget < 0) {
+                break;
+            }
+            answer++;
+        }
+        return answer;
+    }
+
     public static void main(String[] args) {
-        이상한_문자_만들기("try hello world");
+        예산(new int[]{2,2,3,3},10);
     }
 }
