@@ -58,7 +58,19 @@ public class Study04 {
         return answer;
     }
 
+    public static long 크기가_작은_부분문자열(String t, String p) {
+        long answer = 0;
+        for (int i = 0; i <= t.length() - p.length(); i++) {
+            String str = t.substring(i, i + p.length());
+            if (Long.valueOf(p) >= Long.valueOf(str)) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
     public static void main(String[] args) {
-        K번째수(new int[]{1, 5, 2, 6, 3, 7, 4}, new int[][]{{2, 5, 3}, {4, 4, 1}, {1, 7, 3}});
+//        K번째수(new int[]{1, 5, 2, 6, 3, 7, 4}, new int[][]{{2, 5, 3}, {4, 4, 1}, {1, 7, 3}});
+        크기가_작은_부분문자열("10203", "15");
     }
 }
