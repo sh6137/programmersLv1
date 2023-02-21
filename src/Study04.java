@@ -1,4 +1,7 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.stream.Collectors;
 
 public class Study04 {
     //todo : 비트연산 , 자리수 포함
@@ -27,7 +30,21 @@ public class Study04 {
         return answer;
     }
 
+    public static int[] K번째수(int[] array, int[][] commands) {
+        int[] answer = new int[commands.length];
+        for (int i = 0; i < commands.length; i++) {
+            ArrayList<Integer> arrayList = new ArrayList<>();
+            for (int j = commands[i][0] - 1; j <= commands[i][1] - 1; j++) {
+                arrayList.add(array[j]);
+            }
+//            ArrayList a = new ArrayList<>(arrayList.stream().sorted().collect(Collectors.toList())) ;
+            Collections.sort(arrayList);
+            answer[i] = arrayList.get(commands[i][2] - 1);
+        }
+        return answer;
+    }
+
     public static void main(String[] args) {
-        비밀지도(6, new int[]{46, 33, 33, 22, 31, 50}, new int[]{27, 56, 19, 14, 14, 10});
+        K번째수(new int[]{1, 5, 2, 6, 3, 7, 4},new int[][]{{2, 5, 3}, {4, 4, 1}, {1, 7, 3}});
     }
 }
