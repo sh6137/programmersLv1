@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Study04 {
@@ -44,7 +42,23 @@ public class Study04 {
         return answer;
     }
 
+    public int[] 두_개_뽑아서_더하기(int[] numbers) {
+        int[] answer = {};
+        Set<Integer> setList = new HashSet<>();
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = 0; j < numbers.length; j++) {
+                if (i != j) {
+                    setList.add(numbers[i] + numbers[j]);
+                }
+            }
+        }
+        ArrayList arrayList = new ArrayList(setList);
+        answer = arrayList.stream().mapToInt(f -> (int) f).toArray();
+        Arrays.sort(answer);
+        return answer;
+    }
+
     public static void main(String[] args) {
-        K번째수(new int[]{1, 5, 2, 6, 3, 7, 4},new int[][]{{2, 5, 3}, {4, 4, 1}, {1, 7, 3}});
+        K번째수(new int[]{1, 5, 2, 6, 3, 7, 4}, new int[][]{{2, 5, 3}, {4, 4, 1}, {1, 7, 3}});
     }
 }
