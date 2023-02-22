@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -66,6 +67,25 @@ public class Study04 {
                 answer++;
             }
         }
+        return answer;
+    }
+
+    public String 이천십육년(int a, int b) {
+        String answer = "";
+        String[] day = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
+        int[] month = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int date = 0;
+        for (int i = 0; i < a - 1; i++) {
+            date += month[i];
+        }
+        date += b - 1;
+
+        answer = day[date % 7];
+        return answer;
+    }
+    public String 이천십육년2(int a, int b) {
+        String answer = "";
+        answer = LocalDate.of(2016,a,b).getDayOfWeek().toString().substring(0,3);
         return answer;
     }
 
