@@ -62,15 +62,35 @@ public class Study07 {
         return answer;
     }
 
-    public int 소수_만들기(int[] nums) {
+    public static int 소수_만들기(int[] nums) {
         int answer = -1;
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                for (int k = j + 1; k < nums.length; k++) {
+                    arrayList.add(nums[i] + nums[j] + nums[k]);
+                }
+            }
+        }
 
+        for (int i = 0; i < arrayList.size(); i++) {
+            for (int j = 2; j < arrayList.get(i); j++) {
+                if (j == 2) {
+                    if (arrayList.get(i) == j) {
+
+                    }
+                } else if (arrayList.get(i) % j == 0) {
+                    arrayList.remove(i);
+                    i--;
+                    break;
+                }
+            }
+        }
+        answer = arrayList.size();
         return answer;
     }
-    public static void main(String[] args) {
-        모의고사(new int[]{1, 2, 3, 4, 5});
 
-//        int a = 0%5;
-//        System.out.println(a);
+    public static void main(String[] args) {
+        소수_만들기(new int[]{1, 2, 3, 4});
     }
 }
