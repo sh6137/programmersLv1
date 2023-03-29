@@ -1,4 +1,7 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Study10 {
     public static int 다트게임(String dartResult) {
@@ -37,8 +40,43 @@ public class Study10 {
     }
 
     public int[] 로또의_최고_순위와_최저_순위(int[] lottos, int[] win_nums) {
-        int[] answer = {};
+        int[] answer = new int[2];
+        List<Integer> lottosList = new ArrayList<>(Arrays.stream(lottos).boxed().collect(Collectors.toList()));
+        List<Integer> winNumList = new ArrayList<>(Arrays.stream(win_nums).boxed().collect(Collectors.toList()));
+        int min = 0;
+        int max = 0;
+        for (int i = 0; i < winNumList.size(); i++) {
+            if (winNumList.contains(lottosList.get(i))) {
+                min++;
+            }
+        }
+        max = min;
+        for (int i = 0; i < lottosList.size(); i++) {
+            if (lottosList.get(i).equals(0)) {
+                max++;
+            }
+        }
+
+        answer[0] = rank(max);
+        answer[1] = rank(min);
         return answer;
+    }
+
+    private static int rank(int max) {
+        if (max == 6) {
+            max = 1;
+        } else if (max == 5) {
+            max = 2;
+        } else if (max == 4) {
+            max = 3;
+        } else if (max == 3) {
+            max = 4;
+        } else if (max == 2) {
+            max = 5;
+        } else {
+            max = 6;
+        }
+        return max;
     }
 
     public static void main(String[] args) {
