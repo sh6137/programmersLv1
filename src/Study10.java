@@ -36,6 +36,11 @@ public class Study10 {
         return answer;
     }
 
+    public int[] 로또의_최고_순위와_최저_순위(int[] lottos, int[] win_nums) {
+        int[] answer = {};
+        return answer;
+    }
+
     public static void main(String[] args) {
         System.out.println(다트게임("1S2D*3T"));
     }
