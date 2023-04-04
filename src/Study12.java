@@ -47,7 +47,6 @@ public class Study12 {
 
         ArrayList<Integer> lostList = new ArrayList<>(lostSet);
         ArrayList<Integer> reserveList = new ArrayList<>(reserveSet);
-
         for (int i = 0; i < reserveList.size(); i++) {
             if (lostList.contains(reserveList.get(i) - 1)) {
                 lostList.remove(lostList.indexOf((reserveList.get(i) - 1)));
