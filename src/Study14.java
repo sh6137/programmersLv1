@@ -17,7 +17,7 @@ public class Study14 {
                     answer--;
                     break;
                 } else if (j == babbling[i].length()-1) {
-                    
+
                 } else if (babbling[i].charAt(j) == babbling[i].charAt(j + 1)) {
                     answer--;
                     break;
@@ -25,6 +25,12 @@ public class Study14 {
             }
 
         }
+        return answer;
+    }
+
+    public String 카카오_인턴_키패드_누르기(int[] numbers, String hand) {
+        String answer = "";
+
         return answer;
     }
 
