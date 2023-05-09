@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class Study17 {
@@ -65,8 +66,28 @@ public class Study17 {
         return answer;
     }
 
+    public int 햄버거_만들기(int[] ingredient) {
+        int answer = 0;
+        Stack<Integer> integerStack = new Stack<>();
+        for (int i = 0; i < ingredient.length; i++) {
+            integerStack.push(ingredient[i]);
+
+            if (integerStack.size() >= 4) {
+
+                if (integerStack.get(integerStack.size()-4) == 1 && integerStack.get(integerStack.size()-3) == 2 && integerStack.get(integerStack.size()-2) == 3 && integerStack.get(integerStack.size()-1) == 1) {
+                    integerStack.pop();
+                    integerStack.pop();
+                    integerStack.pop();
+                    integerStack.pop();
+                    answer++;
+                }
+            }
+        }
+        return answer;
+    }
+
     public static void main(String[] args) {
         Study17 study17 = new Study17();
-        study17.신규_아이디_추천("abcdefghijklmn.p");
+        study17.햄버거_만들기(new int[]{2, 1, 1, 2, 3, 1, 2, 3, 1});
     }
 }
