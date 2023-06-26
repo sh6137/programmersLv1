@@ -49,9 +49,23 @@ public class Study13 {
         return answer;
     }
 
+    public String 완주하지_못한_선수2(String[] participant, String[] completion) {
+        var set = new HashMap<String, Integer>();
+        for (var s : participant)
+            set.merge(s, 1, Integer::sum);
+        for (var s : completion) {
+            var a = set.get(s);
+            if (a == 1)
+                set.remove(s);
+            else
+                set.put(s, a - 1);
+        }
+        return set.entrySet().iterator().next().getKey();
+    }
+
 
     public static void main(String[] args) {
         Study13 s = new Study13();
-        s.완주하지_못한_선수(new String[]{"mislav", "stanko", "mislav", "ana"}, new String[]{"stanko", "ana", "mislav"});
+        s.완주하지_못한_선수2(new String[]{"mislav", "stanko", "mislav", "ana"}, new String[]{"stanko", "ana", "mislav"});
     }
 }
