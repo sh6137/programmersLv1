@@ -16,11 +16,11 @@ public class Study14 {
                 if (Character.isAlphabetic(babbling[i].charAt(j))) {
                     answer--;
                     break;
-                } else if (j == babbling[i].length() - 1) {
-
-                } else if (babbling[i].charAt(j) == babbling[i].charAt(j + 1)) {
-                    answer--;
-                    break;
+                } else if (j != babbling[i].length() - 1) {
+                    if (babbling[i].charAt(j) == babbling[i].charAt(j + 1)) {
+                        answer--;
+                        break;
+                    }
                 }
             }
 

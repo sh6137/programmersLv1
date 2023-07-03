@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class Study06 {
 
-    public int 폰켓몬(int[] nums) {
+    public static int 폰켓몬(int[] nums) {
         int answer = 0;
         int count = nums.length / 2;
         HashSet<Integer> integers = new HashSet<>();
@@ -68,8 +68,8 @@ public class Study06 {
     }
 
     public static void main(String[] args) {
-        System.out.println(소수_찾기(10));
-
+//        System.out.println(소수_찾기(10));
+        System.out.println(폰켓몬(new int[]{3,1,2,3}));
     }
 }
 
